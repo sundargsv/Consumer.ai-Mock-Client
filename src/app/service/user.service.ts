@@ -18,7 +18,7 @@ export class UserService {
    */
 
    createUser(user) {
-     let loggedUser: LoggedInResponse;
+    let loggedUser: LoggedInResponse = new LoggedInResponse();
      console.log('Creating User:');
     if (user.mobileNumber == 9688265787 ) {
       loggedUser.userId = 1;
