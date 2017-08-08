@@ -1,0 +1,29 @@
+<div>
+  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+          <h1>Register</h1>
+          <label>User Name
+          <input type="text" name="" formControlName="userName"/>
+        </label>
+         <div class="alert" *ngIf="!rForm.controls['userName'].valid && rForm.controls['userName'].touched">{{ titleAlert }}</div> 
+        <label>Mobile
+          <input type="text" name="" formControlName="mobileNumber"/>
+        </label>
+         <div class="alert" *ngIf="!rForm.controls['mobileNumber'].valid && rForm.controls['mobileNumber'].touched">Please enter the valid Mobile Number</div> 
+        <input type="submit" class="button expanded" name="" value="Submit Form" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- <ng-template #forminfo>
+  <div class="form-container">
+    <div class="row columns">
+      <h1>{{ name }}</h1>
+      <p>{{ description }}</p>
+    </div>
+  </div>
+</ng-template> -->
+
+
