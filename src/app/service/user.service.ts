@@ -29,7 +29,25 @@ export class UserService {
       loggedUser.message = 'Invalid mobile number.';
       loggedUser.verified = false;
     }
-    console.log(loggedUser);
+    // console.log(loggedUser);
+     return loggedUser;
+   }
+
+   /**
+    * Resource : /user/{userId}/{otpNumber}
+    */
+   verifyOTP(resourceParams) {
+    console.log(resourceParams);
+    let loggedUser: LoggedInResponse = new LoggedInResponse();
+    if (resourceParams.otpNumber == 1234 &&  resourceParams.user_id == 1) {
+      loggedUser.userId = 1;
+      loggedUser.message = 'User verified with the given OTP.';
+      loggedUser.verified = true;
+    }else {
+      loggedUser.userId = 1;
+      loggedUser.message = 'User not verified with the given OTP.';
+      loggedUser.verified = false;
+    }
      return loggedUser;
    }
 }

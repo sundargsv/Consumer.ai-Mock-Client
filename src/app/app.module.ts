@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LoginComponent } from './component/login/login.component';
 import { UserService } from './service/user.service';
+import { HomeService } from './service/home/home.service';
+import { OTPComponent } from './component/otp/otp.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 @NgModule({
@@ -15,6 +18,8 @@ import { UserService } from './service/user.service';
     AppComponent,
     RegisterComponent,
     LoginComponent,
+    OTPComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,10 +28,13 @@ import { UserService } from './service/user.service';
     HttpModule,
      RouterModule.forRoot([
       {path: 'register', component: RegisterComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {path: 'otpVerification', component: OTPComponent},
+      {path: 'home', component: HomeComponent}
+
     ])
   ],
-  providers: [UserService],
+  providers: [UserService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
