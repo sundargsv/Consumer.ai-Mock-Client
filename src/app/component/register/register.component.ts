@@ -15,7 +15,6 @@ import {LoggedInResponse} from '../../models/LoggedInResponse';
 export class RegisterComponent implements OnInit {
 
   rForm: FormGroup;
-  user: User;
   userName: string = '';
   mobileNumber: number;
   titleAlert: string = 'This field is required';
@@ -33,26 +32,25 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  addPost(post) {
+  addPost(post: User) {
     let loggedUser: LoggedInResponse;
-    this.userName = post.name;
+    this.userName = post.username;
     this.mobileNumber = post.mobileNumber;
     console.log('Your User Input' + JSON.stringify(post));
     loggedUser = this.userService.createUser(post);
-    if(loggedUser.userId != 0) {
-
+    if (loggedUser.userId != 0) {
     // Set our navigation extras object
     // that contains our global query params and fragment
     let navigationExtras: NavigationExtras = {
       queryParams: { 'user_id': loggedUser.userId },
-      fragment: 'anchor'
+      fragment: 'section_2'
     };
       // Navigate to the login page with extras
       this.router.navigate(['/otpVerification'], navigationExtras);
-    } else{
+    } else {
       this.errorMsg = loggedUser.message;
       alert(this.errorMsg);
-    }  
+    }
     console.log(loggedUser);
   }
 }

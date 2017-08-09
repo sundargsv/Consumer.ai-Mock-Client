@@ -1,3 +1,14 @@
-<p>
-  login works!
-</p>
+<div>
+  <form [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+          <h3>Login</h3>
+        <label>Mobile
+          <input type="text" name="" formControlName="mobileNumber"/>
+        </label>
+         <div class="alert" *ngIf="!rForm.controls['mobileNumber'].valid && rForm.controls['mobileNumber'].touched">Please enter 10-digit valid Mobile Number</div> 
+        <input type="submit" class="button expanded" name="" value="Submit Form" [disabled]="!rForm.valid">
+      </div>
+    </div>
+  </form>
+</div>
