@@ -56,8 +56,20 @@ export class HomeService {
       product_2.id = 124; product_2.name = 'One plus 3T'; product_2.merchant = merchant_2;
       marketPlace.userId = 1;
       marketPlace.products = [product_1, product_2];
-      return marketPlace;
+      let marketPlace: MarketPlace = new MarketPlace();
+      marketPlace = this.getMarketplaceData();
+      // console.log( this.getMarketplaceData());
+      return  marketPlace;
 
   }
+
+  // getMarketplaceData(): Observable<MarketPlace> {
+  //   return this.http.get('assets/marketplaceData.json')
+  //       .map((response: Response) => {
+  //           console.log('mock data' + response.json());
+  //           return response.json();
+  //       }
+  //       );
+  // }
 }
 
