@@ -6,9 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
-import {MarketPlace} from '../../models/marketPlace';
-import {Product} from '../../models/product';
-import {Merchant} from '../../models/merchant';
+// import {Product} from '../../models/product';
+// import {Merchant} from '../../models/merchant';
 
 // import * as data from './marketplaceData.json';
 
@@ -37,10 +36,10 @@ export class HomeService {
     * @response: Marketplace
     * @error's : Check with the header status and send the error msg
     */
-   getAllMarketPlaceByUser(userId) {
-      let marketPlace: MarketPlace = new MarketPlace();
+   getAllMarketPlaceByUserExtra(userId) {
+      let products: Product[] = [];
       let url = `${this.apiRoot}/marketPlaces`;
-      // this.http.get(url).subscribe(res => console.log(res.json())); 
+      // this.http.get(url).subscribe(res => console.log(res.json()));
       // let product_1: Product = new Product();
       // let merchant_1: Merchant = new Merchant();
       // merchant_1 = {
@@ -59,7 +58,7 @@ export class HomeService {
       // product_2.id = 124; product_2.name = 'One plus 3T'; product_2.merchant = merchant_2;
       // marketPlace.userId = 1;
       // marketPlace.products = [product_1, product_2];
-      // marketPlace = 
+      // marketPlace
 
       // this.http.get(url).toPromise()
       //   .then(res => console.log(res.json()),
@@ -67,10 +66,10 @@ export class HomeService {
       // );
 
       this.http.get(url).toPromise()
-        .then(marketPlace => console.log(marketPlace.json())
+        .then(products => console.log(products.json())
         )
-        .catch( msg => console.error(`Error: ${msg.status} ${msg.statusText}`) )
-      return  marketPlace;
+        .catch( msg => console.error(`Error: ${msg.status} ${msg.statusText}`) );
+      return  products;
 
   }
 
