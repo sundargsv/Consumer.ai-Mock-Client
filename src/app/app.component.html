@@ -7,20 +7,19 @@
   <img width="200" style="border-radius:50px" src="http://ckgsb.cachefly.net/wp-content/uploads/2014/02/HiRes-Resized.jpg">
 </div>
 
-  <b>Menus</b>
-
-  <div class="form-container">
-    <ul>
-      <li>
-      <a routerLink="/register" href="">Register</a>
-    </li>
-    <li>
-      <a routerLink="/login" href="">Login</a>  
-    </li>
-    </ul>
+  <div class="container">
+    <div class="row">
+        
+        <div class="col-md-6">
+          <b>Menus</b> :
+          <a routerLink="/register" href="">Register</a> || <a routerLink="/login" href="">Login</a> 
+        </div>
+        <div class="col-md-6">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
   </div>
 
-<router-outlet></router-outlet>
 
 <!-- <router-outlet name="header"></router-outlet>
 <router-outlet name="navbar"></router-outlet>

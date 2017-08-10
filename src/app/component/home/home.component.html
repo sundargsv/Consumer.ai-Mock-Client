@@ -1,7 +1,12 @@
 <!-- Home Page -->
-<div class="form-container">
-      <div class="row columns">
-        <h3>MarketPlace</h3>
-        
-      </div>
-</div>     
+
+<!-- <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">MarketPlace</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul> -->
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.id }}
+    </li>
+  </ul>

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Router, NavigationExtras } from '@angular/router';
 
-
+import {MarketPlace} from '../../models/marketPlace';
+import {Product} from '../../models/product';
 import { HomeService } from '../../service/home/home.service';
 
 /**
@@ -18,7 +19,9 @@ import { HomeService } from '../../service/home/home.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  private userId: number;
+  userId: number;
+  marketPlace: MarketPlace = new MarketPlace();
+  products: Product[];
   constructor(private route: ActivatedRoute, private homeService: HomeService) {
   }
 
@@ -27,8 +30,11 @@ export class HomeComponent implements OnInit {
           this.userId = params['user_id'];
     });
     console.log('Home Page - User_id ' + this.userId);
-    const obj: any = this.homeService.getAllMarketPlaceByUser(this.userId);
-    console.log(JSON.stringify(obj));
+    this.marketPlace = this.homeService.getAllMarketPlaceByUser(this.userId);
+    this.products = this.marketPlace.products;
+    console.log(JSON.stringify(this.marketPlace.products));
+    console.log(this.products);
+    
   }
 
   /**

@@ -1,13 +1,14 @@
 <div>
   <form [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
     <div class="form-container">
-      <div class="row columns">
+      <div class="row">
           <h3>Login</h3>
-        <label>Mobile
-          <input type="text" name="" formControlName="mobileNumber"/>
-        </label>
-         <div class="alert" *ngIf="!rForm.controls['mobileNumber'].valid && rForm.controls['mobileNumber'].touched">Please enter 10-digit valid Mobile Number</div> 
-        <input type="submit" class="button expanded" name="" value="Submit Form" [disabled]="!rForm.valid">
+          <div class="form-group">
+            <label>Mobile</label>
+            <input type="text" name="" formControlName="mobileNumber"/>
+            <div class="alert alert-warning" *ngIf="!rForm.controls['mobileNumber'].valid && rForm.controls['mobileNumber'].touched">Please enter 10-digit valid Mobile Number</div> 
+          </div>
+        <input type="submit" class="btn btn-primary" name="" value="Login" [disabled]="!rForm.valid">
       </div>
     </div>
   </form>

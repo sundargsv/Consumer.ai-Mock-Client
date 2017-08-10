@@ -3,11 +3,12 @@
     <div class="form-container">
       <div class="row columns">
           <h3>OTP Verification</h3>
-          <label>OTP Number
-          <input type="text" name="" formControlName="otpNumber"/>
-        </label>
-         <div class="alert" *ngIf="!rForm.controls['otpNumber'].valid && rForm.controls['otpNumber'].touched">Enter 4 digit OTP Number</div> 
-        <input type="submit" class="button expanded" name="" value="Submit Form" [disabled]="!rForm.valid">
+          <div class="form-group">
+            <label>OTP Number</label>
+            <input type="text" name="" formControlName="otpNumber"/>
+            <div class="alert alert-warning" *ngIf="!rForm.controls['otpNumber'].valid && rForm.controls['otpNumber'].touched">Enter 4 digit OTP Number</div> 
+          </div>
+          <input type="submit" class="btn btn-primary" name="" value="Verify" [disabled]="!rForm.valid">
       </div>
     </div>
   </form>
