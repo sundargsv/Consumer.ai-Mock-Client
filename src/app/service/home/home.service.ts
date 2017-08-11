@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
 
-// import {Product} from '../../models/product';
+ import {Product} from '../../models/product';
 // import {Merchant} from '../../models/merchant';
 
 // import * as data from './marketplaceData.json';
@@ -71,6 +71,19 @@ export class HomeService {
         .catch( msg => console.error(`Error: ${msg.status} ${msg.statusText}`) );
       return  products;
 
+  }
+
+  getAllMarketPlaceByUser(userId) {
+    let url = `${this.apiRoot}/marketPlaces`;
+     return this.http.get(url).map((response: Response) => response.json());
+  }
+
+  getAllArchievePurchase(userId) {
+
+  }
+
+  getAllCurrentPurchase(userId) {
+    
   }
 
 }

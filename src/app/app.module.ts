@@ -11,6 +11,8 @@ import { UserService } from './service/user.service';
 import { HomeService } from './service/home/home.service';
 import { OTPComponent } from './component/otp/otp.component';
 import { HomeComponent } from './component/home/home.component';
+import { MarketPlaceComponent } from './component/market-place/market-place.component';
+import { PurchaseComponent } from './component/purchase/purchase.component';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { HomeComponent } from './component/home/home.component';
     LoginComponent,
     OTPComponent,
     HomeComponent,
+    MarketPlaceComponent,
+    PurchaseComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,9 @@ import { HomeComponent } from './component/home/home.component';
       {path: 'register', component: RegisterComponent},
       {path: 'login', component: LoginComponent},
       {path: 'otpVerification', component: OTPComponent},
-      {path: 'home', component: HomeComponent}
+      {path: 'home', component: HomeComponent},
+      {path: 'marketPlace', component: MarketPlaceComponent},
+      {path: 'purchase', component: PurchaseComponent}
 
     ])
   ],

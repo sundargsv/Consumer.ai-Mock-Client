@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router, NavigationExtras } from '@angular/router';
 
 import { UserService } from '../../service/user.service';
-// import {User} from '../../models/user';
 import {LoggedInResponse} from '../../models/LoggedInResponse';
 
 
@@ -43,7 +42,7 @@ export class OTPComponent implements OnInit {
     if (loggedUser.verified) {
       let navigationExtras: NavigationExtras = {
       queryParams: { 'user_id': loggedUser.userId },
-      fragment: 'anchor'
+      fragment: 'section_3'
     };
     // Navigate to the login page with extras
       this.router.navigate(['/home'], navigationExtras);

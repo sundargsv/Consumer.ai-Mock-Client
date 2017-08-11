@@ -20,15 +20,15 @@ import { HomeService } from '../../service/home/home.service';
 export class HomeComponent implements OnInit {
   userId: number;
   products: Product[] = [];
-  constructor(private route: ActivatedRoute, private homeService: HomeService) {
+  constructor(private route: ActivatedRoute, private homeService: HomeService, private router: Router) {
   }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
           this.userId = params['user_id'];
     });
-    console.log('Home Page - User_id ' + this.userId);
-    this.getAllMarketPlaceByUser(this.userId);
+    console.log('Home Component - User_id ' + this.userId);
+    //this.getAllMarketPlaceByUser(this.userId);
     // this.homeService.getAllMarketPlaceByUser(this.userId).subscribe((marketPlace) => {
     //    this.marketPlace = marketPlace;
     //   });
@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     // this.marketPlace = this.homeService.getAllMarketPlaceByUser(this.userId);
     // this.products = this.marketPlace.products;
     // console.log(JSON.stringify(this.marketPlace.products));
-    console.log(this.products);
+    //console.log(this.products);
   }
 
   /**
@@ -47,6 +47,24 @@ export class HomeComponent implements OnInit {
 
    private getAllMarketPlaceByUser(userId) {
        this.homeService.getAllMarketPlaceByUser(userId).subscribe(products => { this.products = products; });
+   }
+
+   callMarketPlace() {
+     let navigationExtras: NavigationExtras = {
+      queryParams: { 'user_id': this.userId },
+      fragment: 'section_4'
+    };
+    // Navigate to the login page with extras
+      this.router.navigate(['/marketPlace'], navigationExtras);
+   }
+
+   callPurchase() {
+     let navigationExtras: NavigationExtras = {
+      queryParams: { 'user_id': this.userId },
+      fragment: 'section_5'
+    };
+    // Navigate to the login page with extras
+      this.router.navigate(['/purchase'], navigationExtras);
    }
 
 }
